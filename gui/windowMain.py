@@ -15,10 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QListWidget, QListWidgetItem, QMainWindow, QPushButton,
-    QSizePolicy, QStackedWidget, QStatusBar, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
+    QLabel, QLineEdit, QListWidget, QListWidgetItem,
+    QMainWindow, QPushButton, QSizePolicy, QSpinBox,
+    QStackedWidget, QStatusBar, QVBoxLayout, QWidget)
 
 class Ui_windowMain(object):
     def setupUi(self, windowMain):
@@ -151,60 +151,75 @@ class Ui_windowMain(object):
         self.active_page.setObjectName(u"active_page")
         self.gridLayout = QGridLayout(self.active_page)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.active_addV = QPushButton(self.active_page)
-        self.active_addV.setObjectName(u"active_addV")
+        self.active_getVideo = QPushButton(self.active_page)
+        self.active_getVideo.setObjectName(u"active_getVideo")
 
-        self.gridLayout.addWidget(self.active_addV, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.active_getVideo, 0, 0, 1, 1)
+
+        self.btnGet = QPushButton(self.active_page)
+        self.btnGet.setObjectName(u"btnGet")
+
+        self.gridLayout.addWidget(self.btnGet, 4, 0, 1, 1)
+
+        self.label1 = QLabel(self.active_page)
+        self.label1.setObjectName(u"label1")
+
+        self.gridLayout.addWidget(self.label1, 1, 0, 1, 1)
+
+        self.btnGetNext = QPushButton(self.active_page)
+        self.btnGetNext.setObjectName(u"btnGetNext")
+
+        self.gridLayout.addWidget(self.btnGetNext, 4, 1, 1, 1)
 
         self.active_box = QPushButton(self.active_page)
         self.active_box.setObjectName(u"active_box")
 
         self.gridLayout.addWidget(self.active_box, 0, 1, 1, 1)
 
-        self.active_video = QPushButton(self.active_page)
-        self.active_video.setObjectName(u"active_video")
+        self.label2 = QLabel(self.active_page)
+        self.label2.setObjectName(u"label2")
 
-        self.gridLayout.addWidget(self.active_video, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.label2, 2, 0, 1, 1)
 
-        self.active_DLV = QPushButton(self.active_page)
-        self.active_DLV.setObjectName(u"active_DLV")
+        self.sb1 = QSpinBox(self.active_page)
+        self.sb1.setObjectName(u"sb1")
 
-        self.gridLayout.addWidget(self.active_DLV, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.sb1, 1, 1, 1, 1)
 
-        self.active_getVideo = QPushButton(self.active_page)
-        self.active_getVideo.setObjectName(u"active_getVideo")
+        self.ab2 = QSpinBox(self.active_page)
+        self.ab2.setObjectName(u"ab2")
 
-        self.gridLayout.addWidget(self.active_getVideo, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.ab2, 2, 1, 1, 1)
 
-        self.pushButton_2 = QPushButton(self.active_page)
-        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.lineEdit = QLineEdit(self.active_page)
+        self.lineEdit.setObjectName(u"lineEdit")
 
-        self.gridLayout.addWidget(self.pushButton_2, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.lineEdit, 3, 1, 1, 1)
 
-        self.pushButton_3 = QPushButton(self.active_page)
-        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.label3 = QLabel(self.active_page)
+        self.label3.setObjectName(u"label3")
 
-        self.gridLayout.addWidget(self.pushButton_3, 3, 0, 1, 1)
-
-        self.active_count = QPushButton(self.active_page)
-        self.active_count.setObjectName(u"active_count")
-
-        self.gridLayout.addWidget(self.active_count, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.label3, 3, 0, 1, 1)
 
         self.actionPage.addWidget(self.active_page)
         self.other_page = QWidget()
         self.other_page.setObjectName(u"other_page")
         self.gridLayout_4 = QGridLayout(self.other_page)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.setting = QPushButton(self.other_page)
-        self.setting.setObjectName(u"setting")
-
-        self.gridLayout_4.addWidget(self.setting, 0, 0, 1, 1)
-
         self.exit = QPushButton(self.other_page)
         self.exit.setObjectName(u"exit")
 
-        self.gridLayout_4.addWidget(self.exit, 1, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.exit, 2, 0, 1, 1)
+
+        self.setting = QPushButton(self.other_page)
+        self.setting.setObjectName(u"setting")
+
+        self.gridLayout_4.addWidget(self.setting, 1, 0, 1, 1)
+
+        self.comboBox = QComboBox(self.other_page)
+        self.comboBox.setObjectName(u"comboBox")
+
+        self.gridLayout_4.addWidget(self.comboBox, 0, 0, 1, 1)
 
         self.actionPage.addWidget(self.other_page)
 
@@ -259,7 +274,7 @@ class Ui_windowMain(object):
 
         self.retranslateUi(windowMain)
 
-        self.actionPage.setCurrentIndex(0)
+        self.actionPage.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(windowMain)
@@ -285,16 +300,15 @@ class Ui_windowMain(object):
         self.action_choseAll.setText(QCoreApplication.translate("windowMain", u"\u5168\u9009", None))
         self.action_2.setText(QCoreApplication.translate("windowMain", u"PushButton", None))
         self.action_open.setText(QCoreApplication.translate("windowMain", u"\u6253\u5f00", None))
-        self.active_addV.setText(QCoreApplication.translate("windowMain", u"\u6dfb\u52a0\u89c6\u9891", None))
+        self.active_getVideo.setText(QCoreApplication.translate("windowMain", u"\u9009\u62e9\u6e20\u9053", None))
+        self.btnGet.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6", None))
+        self.label1.setText("")
+        self.btnGetNext.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6\u4e0b\u4e00\u4e2a", None))
         self.active_box.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6", None))
-        self.active_video.setText(QCoreApplication.translate("windowMain", u"\u89c6\u9891\u64cd\u4f5c", None))
-        self.active_DLV.setText(QCoreApplication.translate("windowMain", u"\u4e0b\u8f7d\u89c6\u9891", None))
-        self.active_getVideo.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6\u89c6\u9891", None))
-        self.pushButton_2.setText(QCoreApplication.translate("windowMain", u"PushButton", None))
-        self.pushButton_3.setText(QCoreApplication.translate("windowMain", u"PushButton", None))
-        self.active_count.setText(QCoreApplication.translate("windowMain", u"\u7edf\u8ba1", None))
-        self.setting.setText(QCoreApplication.translate("windowMain", u"\u8bbe\u7f6e", None))
+        self.label2.setText("")
+        self.label3.setText("")
         self.exit.setText(QCoreApplication.translate("windowMain", u"\u9000\u51fa", None))
+        self.setting.setText(QCoreApplication.translate("windowMain", u"\u8bbe\u7f6e", None))
         self.active_cPage.setText(QCoreApplication.translate("windowMain", u"\u6d3b\u52a8", None))
         self.other_cPage.setText(QCoreApplication.translate("windowMain", u"\u5176\u4ed6", None))
         self.pic.setText("")

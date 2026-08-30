@@ -55,7 +55,7 @@
            </size>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="custom_page">
            <layout class="QGridLayout" name="gridLayout_2">
@@ -179,31 +179,10 @@
           </widget>
           <widget class="QWidget" name="active_page">
            <layout class="QGridLayout" name="gridLayout">
-            <item row="0" column="0">
-             <widget class="QPushButton" name="active_getVideo">
-              <property name="text">
-               <string>选择渠道</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QPushButton" name="btnGet">
-              <property name="text">
-               <string>获取</string>
-              </property>
-             </widget>
-            </item>
             <item row="1" column="0">
-             <widget class="QLabel" name="label1">
+             <widget class="QPushButton" name="active_addV">
               <property name="text">
-               <string/>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QPushButton" name="btnGetNext">
-              <property name="text">
-               <string>获取下一个</string>
+               <string>添加视频</string>
               </property>
              </widget>
             </item>
@@ -215,25 +194,44 @@
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="QLabel" name="label2">
+             <widget class="QPushButton" name="active_video">
               <property name="text">
-               <string/>
+               <string>视频操作</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QPushButton" name="active_DLV">
+              <property name="text">
+               <string>下载视频</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QPushButton" name="active_getVideo">
+              <property name="text">
+               <string>获取视频</string>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QSpinBox" name="sb1"/>
-            </item>
-            <item row="2" column="1">
-             <widget class="QSpinBox" name="ab2"/>
-            </item>
-            <item row="3" column="1">
-             <widget class="QLineEdit" name="lineEdit"/>
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="text">
+               <string>PushButton</string>
+              </property>
+             </widget>
             </item>
             <item row="3" column="0">
-             <widget class="QLabel" name="label3">
+             <widget class="QPushButton" name="pushButton_3">
               <property name="text">
-               <string/>
+               <string>PushButton</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QPushButton" name="active_count">
+              <property name="text">
+               <string>统计</string>
               </property>
              </widget>
             </item>
@@ -241,22 +239,19 @@
           </widget>
           <widget class="QWidget" name="other_page">
            <layout class="QGridLayout" name="gridLayout_4">
-            <item row="2" column="0">
-             <widget class="QPushButton" name="exit">
-              <property name="text">
-               <string>退出</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
+            <item row="0" column="0">
              <widget class="QPushButton" name="setting">
               <property name="text">
                <string>设置</string>
               </property>
              </widget>
             </item>
-            <item row="0" column="0">
-             <widget class="QComboBox" name="comboBox"/>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="exit">
+              <property name="text">
+               <string>退出</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>

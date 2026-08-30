@@ -17,7 +17,6 @@ def w_rid(param):
     y = '&'.join(f)
     return hashlib.md5((y + c).encode(encoding='utf-8')).hexdigest(), u
 
-
 class get:
     def __init__(self, config=None):
         self.session = requests.Session()
@@ -37,17 +36,20 @@ class get:
         if response.status_code == 200:
             return True
         else:
+            raise 
             return False
     # ========== 原有方法 ==========
-    def VG(self, clear=True):
+    def VG(self, ps=10, clear=True):
         """推荐视频"""
-        Url = "https://api.bilibili.com/x/web-interface/wbi/index/top/feed/rcmd?ps=10&web_location=1430650&y_num=3&fresh_type=4&feed_version=V8&fresh_idx_1h=1&fetch_row=4&fresh_idx=1&brush=1&device=win&homepage_ver=1&last_y_num=4&screen=329-565&seo_info=&tt_exp=&uniq_id=1314743959197"
+        Url = f"https://api.bilibili.com/x/web-interface/wbi/index/top/feed/rcmd?ps={ps}&web_location=1430650&y_num=3&fresh_type=4&feed_version=V8&fresh_idx_1h=1&fetch_row=4&fresh_idx=1&brush=1&device=win&homepage_ver=1&last_y_num=4&screen=329-565&seo_info=&tt_exp=&uniq_id=1314743959197"
         req = self.session.get(Url)
         self.check(req)
         if clear:
             data = req.json()
             if data['code'] == 0:
-                row = [{"title": item['title'], "bvid": item['bvid'], "pic": item['pic'], "upname": item['owner']['name'], "upid":item['owner']['mid'], "cid":item['cid']} for item in data['data']['item']]
+                #row = [{"title": item['title'], "bvid": item['bvid'], "pic": item['pic'], "upname": item['owner']['name'], "upid":item['owner']['mid'], "cid":item['cid']} if item['goto'] != 'ad' for item in data['data']['item']]
+                row = [{"title": item['title'], "bvid": item['bvid'], "pic": item['pic'], "upname": item['owner']['name'], "upid": item['owner']['mid'], 
+                "cid": item['cid']} for item in data['data']['item'] if item['goto'] != 'ad']
                 return row
         else:
             return req.json()
@@ -64,6 +66,8 @@ class get:
                        "owner": row['owner']['name'], "upid": row['owner']['mid'], 
                        "duration": row['duration'], "desc": row['desc'], 
                        "view": row['stat']['view'], "cid": row['cid']}
+            else:
+                return data
         else:
             return req.json()
     # ========== 新增方法（从 api.py 迁移） ==========
@@ -267,6 +271,8 @@ class get:
             if get_data['code'] == 0:
                 return [{'bvid': i['bvid'], 'title': i['title'], 'aid': i['aid']} 
                        for i in get_data['data']['list']['vlist']]
+            else:
+                return req.json()
         else:
             return req.json()
     def Vtag(self, bvid, clear=True):
@@ -387,7 +393,7 @@ class get:
 
 if __name__ == "__main__":
     g = get()
-    for i in g.VG():
+    for i in g.VG(): # type: ignore
         print(i)
     # 测试示例
     # info = g.videoInfo("BV1xx411c7mD")

@@ -1,4 +1,5 @@
 import json, os, sqlite3
+#from typing import Any
 
 class UData:
     """用户数据类，用于管理用户配置数据"""
@@ -215,6 +216,45 @@ class items:
         if key not in self.__key:
             raise ValueError(f"[E][{self.tag}]键无效: {key}")
         self.__allItem[main_key][key] = value
+
+class groups:
+    """组类，用于管理一组项组"""
+    def __init__(self):
+        self.__now = ""
+        self.__all = {}
+    def __repr__(self):
+        return f"<Groups count={len(self.__all)}>"
+    def __call__(self, tag=None) -> items|None:
+        if tag ==None:
+            tag = "_"
+        return self.__all.get(tag)
+    def __getitem__(self,key) -> items|None:
+        return self.__all.get(key)
+    def addItems(self,i:items,tag=None):
+        """
+        添加项组到组
+        :param i: 项组
+        """
+        if not isinstance(i, items):
+            #raise ValueError("[E][Groups]添加的对象不是项组")
+            return False
+        if i.tag in self.__all:
+            raise ValueError(f"[E][Groups]项组标签重复: {i.tag}")
+        if tag == None:
+            self.__all[i.tag] = i
+        else:
+            self.__all[tag] = i
+    def getItems(self, tag):
+        """
+        获取指定标签的项组
+        :param tag: 项组的标签
+        :return: 指定标签的项组
+        """
+        return self.__all.get(tag,False)
+    def changeNow(self,tag):
+        if tag in self.__all:
+            self.__now = tag
+
 
 if __name__ == "__main__":
     u =UData("D:/y/pj/p/ygbp/data")
