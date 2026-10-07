@@ -2,7 +2,7 @@ import json, os, sqlite3
 #from typing import Any
 
 class UData:
-    """用户数据类，用于管理用户配置数据"""
+    """用户数据类,用于管理用户配置数据"""
     configTemplate = {
             "defaultDir": "~",
             "downloadPath": "",
@@ -18,7 +18,8 @@ class UData:
         """加载数据"""
         self.box = sqlite3.connect(os.path.join(self.path, 'box.db'))
         with self.box:
-            self.box.execute('''CREATE TABLE IF NOT EXISTS user (
+            self.box.execute('DROP TABLE user')
+            self.box.execute('''CREATE TABLE IF NOT EXISTS uBox (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL
             )''')
@@ -57,11 +58,11 @@ class UData:
         return self.box
     
 class items:
-    """项组类，用于管理一组具有相同结构的项"""
-    def __init__(self,key,tag):
+    """项组类,用于管理一组具有相同结构的项"""
+    def __init__(self,key:list[str],tag:str):
         """
         初始化项组
-        :param key: 项组的键表，第一个键为主键
+        :param key: 项组的键表,第一个键为主键
         :param tag: 项组的标签
         """
         self.tag = tag
@@ -73,7 +74,7 @@ class items:
             if k[0].isdigit():
                 raise ValueError(f"[E][{self.tag}]项组键不能以数字开头: {k}")
             # 可选：检查是否包含特殊字符
-            if not k.isidentifier():  # Python内置方法，检查是否为合法标识符
+            if not k.isidentifier():  # Python内置方法,检查是否为合法标识符
                 raise ValueError(f"[E][{self.tag}]项组键无效: {k}")
         self.__key = key
         self.__allItem = {}
@@ -85,10 +86,10 @@ class items:
         return iter(self.__allItem.values())
     def __len__(self):
         return len(self.__allItem)
-    def addItem(self, item):
+    def addItem(self, item:dict):
         """
         添加项到项组
-        :param item: 项，必须是字典，且包含所有键
+        :param item: 项,必须是字典,且包含所有键
         """
         if not isinstance(item, dict):
             raise ValueError(f"[E][{self.tag}]项必须是字典")
@@ -106,23 +107,23 @@ class items:
         self.__allItem.clear()
         self.__chosenItem.clear()
         self.__chosingItem = ""
-    def choose(self, item=None, dotype=None):
+    def choose(self, item:int|str|list|None=None, dotype:bool|None=None):
         """
         选择项
-        :param item: 项的主键，或项的索引，或项的列表
-        :param dotype: True表示选择，False表示取消选择，None表示切换选择状态
+        :param item: 项的主键,或项的索引,或项的列表
+        :param dotype: True表示选择,False表示取消选择,None表示切换选择状态
         """
         if item is None:
-            # 如果没有传入item，全选/全不选
+            # 如果没有传入item,全选/全不选
             if len(self.__chosenItem) == len(self.__allItem):
-                # 如果已经全选，则全不选
+                # 如果已经全选,则全不选
                 self.__chosenItem.clear()
             else:
                 # 否则全选
                 self.__chosenItem = list(self.__allItem.keys())
             return
         if isinstance(item, int):
-            # 如果是索引，获取对应的主键
+            # 如果是索引,获取对应的主键
             main_key = list(self.__allItem.keys())[item]
             self.choose(main_key, dotype)
         elif isinstance(item, list):
@@ -143,10 +144,10 @@ class items:
                     self.__chosenItem.remove(item)
                 else:
                     self.__chosenItem.append(item)
-    def delete(self, item=None):
+    def delete(self, item:int|str|list|None=None):
         """
         删除项
-        :param item: 项的主键，或项的索引，或项的列表
+        :param item: 项的主键,或项的索引,或项的列表
         """
         if item is None:
             # 删除全部项中主键在被选项中的所有项
@@ -156,7 +157,7 @@ class items:
             self.__chosenItem.clear()
             return
         if isinstance(item, int):
-            # 如果是索引，获取对应的主键
+            # 如果是索引,获取对应的主键
             main_key = list(self.__allItem.keys())[item]
             self.delete(main_key)
         elif isinstance(item, list):
@@ -172,7 +173,7 @@ class items:
     def getChosen(self, key=None):
         """
         获取被选项的值
-        :param key: 键，或键的索引，或None表示获取所有被选项
+        :param key: 键,或键的索引,或None表示获取所有被选项
         :return: 被选项的值列表
         """
         if key is None:
@@ -185,7 +186,7 @@ class items:
     def getAll(self, key=None):
         """
         获取所有项的值
-        :param key: 键，或键的索引，或None表示获取所有项
+        :param key: 键,或键的索引,或None表示获取所有项
         :return: 所有项的值列表
         """
         if key is None:
@@ -216,9 +217,12 @@ class items:
         if key not in self.__key:
             raise ValueError(f"[E][{self.tag}]键无效: {key}")
         self.__allItem[main_key][key] = value
+    def addItems(self,items:list[dict]):
+        for i in items:
+            self.addItem(i)
 
 class groups:
-    """组类，用于管理一组项组"""
+    """组类,用于管理一组项组"""
     def __init__(self):
         self.__now = ""
         self.__all = {}

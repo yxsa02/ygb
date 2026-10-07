@@ -1,3 +1,4 @@
+from __future__ import annotations
 from PySide6 import QtCore, QtWidgets
 import threading, time, sys
 from .main import mainWindow

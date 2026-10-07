@@ -1,4 +1,4 @@
-from . import get,data
+from . import get,data,downloader
 from .action import action
 #from functools import wraps
 
@@ -10,6 +10,7 @@ class activity:
         self.udata = udata
         self.itemGroups = ig
         self.geter = get.get(udata.getConfig())
+        self.downloader = downloader.dlThread(self)
         self.action = action(self)
         self.uim.start()
         self.status = "running"
