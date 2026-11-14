@@ -15,9 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QListWidget, QListWidgetItem, QMainWindow, QPushButton,
-    QSizePolicy, QStackedWidget, QStatusBar, QVBoxLayout,
+from PySide6.QtWidgets import (QApplication, QComboBox, QFormLayout, QGridLayout,
+    QHBoxLayout, QLabel, QLineEdit, QListWidget,
+    QListWidgetItem, QMainWindow, QPushButton, QSizePolicy,
+    QSpinBox, QStackedWidget, QStatusBar, QVBoxLayout,
     QWidget)
 
 class Ui_windowMain(object):
@@ -147,64 +148,215 @@ class Ui_windowMain(object):
         self.gridLayout_3.addWidget(self.action_open, 2, 1, 1, 1)
 
         self.actionPage.addWidget(self.action_page)
-        self.active_page = QWidget()
-        self.active_page.setObjectName(u"active_page")
-        self.gridLayout = QGridLayout(self.active_page)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.active_addV = QPushButton(self.active_page)
-        self.active_addV.setObjectName(u"active_addV")
+        self.active_page_sea = QWidget()
+        self.active_page_sea.setObjectName(u"active_page_sea")
+        self.formLayout_2 = QFormLayout(self.active_page_sea)
+        self.formLayout_2.setObjectName(u"formLayout_2")
+        self.keyword = QLineEdit(self.active_page_sea)
+        self.keyword.setObjectName(u"keyword")
 
-        self.gridLayout.addWidget(self.active_addV, 1, 0, 1, 1)
+        self.formLayout_2.setWidget(1, QFormLayout.ItemRole.FieldRole, self.keyword)
 
-        self.active_box = QPushButton(self.active_page)
-        self.active_box.setObjectName(u"active_box")
+        self.label = QLabel(self.active_page_sea)
+        self.label.setObjectName(u"label")
 
-        self.gridLayout.addWidget(self.active_box, 0, 1, 1, 1)
+        self.formLayout_2.setWidget(1, QFormLayout.ItemRole.LabelRole, self.label)
 
-        self.active_video = QPushButton(self.active_page)
-        self.active_video.setObjectName(u"active_video")
+        self.label_2 = QLabel(self.active_page_sea)
+        self.label_2.setObjectName(u"label_2")
 
-        self.gridLayout.addWidget(self.active_video, 2, 0, 1, 1)
+        self.formLayout_2.setWidget(2, QFormLayout.ItemRole.LabelRole, self.label_2)
 
-        self.active_DLV = QPushButton(self.active_page)
-        self.active_DLV.setObjectName(u"active_DLV")
+        self.ps_1 = QSpinBox(self.active_page_sea)
+        self.ps_1.setObjectName(u"ps_1")
 
-        self.gridLayout.addWidget(self.active_DLV, 2, 1, 1, 1)
+        self.formLayout_2.setWidget(2, QFormLayout.ItemRole.FieldRole, self.ps_1)
 
-        self.active_getVideo = QPushButton(self.active_page)
-        self.active_getVideo.setObjectName(u"active_getVideo")
+        self.label_3 = QLabel(self.active_page_sea)
+        self.label_3.setObjectName(u"label_3")
 
-        self.gridLayout.addWidget(self.active_getVideo, 0, 0, 1, 1)
+        self.formLayout_2.setWidget(3, QFormLayout.ItemRole.LabelRole, self.label_3)
 
-        self.pushButton_2 = QPushButton(self.active_page)
-        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pn_1 = QSpinBox(self.active_page_sea)
+        self.pn_1.setObjectName(u"pn_1")
 
-        self.gridLayout.addWidget(self.pushButton_2, 1, 1, 1, 1)
+        self.formLayout_2.setWidget(3, QFormLayout.ItemRole.FieldRole, self.pn_1)
 
-        self.pushButton_3 = QPushButton(self.active_page)
-        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.btnGV_2 = QPushButton(self.active_page_sea)
+        self.btnGV_2.setObjectName(u"btnGV_2")
 
-        self.gridLayout.addWidget(self.pushButton_3, 3, 0, 1, 1)
+        self.formLayout_2.setWidget(0, QFormLayout.ItemRole.LabelRole, self.btnGV_2)
 
-        self.active_count = QPushButton(self.active_page)
-        self.active_count.setObjectName(u"active_count")
+        self.btnBox_2 = QPushButton(self.active_page_sea)
+        self.btnBox_2.setObjectName(u"btnBox_2")
 
-        self.gridLayout.addWidget(self.active_count, 3, 1, 1, 1)
+        self.formLayout_2.setWidget(0, QFormLayout.ItemRole.FieldRole, self.btnBox_2)
 
-        self.actionPage.addWidget(self.active_page)
+        self.btnGet_2 = QPushButton(self.active_page_sea)
+        self.btnGet_2.setObjectName(u"btnGet_2")
+
+        self.formLayout_2.setWidget(4, QFormLayout.ItemRole.LabelRole, self.btnGet_2)
+
+        self.btnGetNext_2 = QPushButton(self.active_page_sea)
+        self.btnGetNext_2.setObjectName(u"btnGetNext_2")
+
+        self.formLayout_2.setWidget(4, QFormLayout.ItemRole.FieldRole, self.btnGetNext_2)
+
+        self.actionPage.addWidget(self.active_page_sea)
+        self.active_page_hs = QWidget()
+        self.active_page_hs.setObjectName(u"active_page_hs")
+        self.formLayout_4 = QFormLayout(self.active_page_hs)
+        self.formLayout_4.setObjectName(u"formLayout_4")
+        self.btnGV_3 = QPushButton(self.active_page_hs)
+        self.btnGV_3.setObjectName(u"btnGV_3")
+
+        self.formLayout_4.setWidget(0, QFormLayout.ItemRole.LabelRole, self.btnGV_3)
+
+        self.btnBox_3 = QPushButton(self.active_page_hs)
+        self.btnBox_3.setObjectName(u"btnBox_3")
+
+        self.formLayout_4.setWidget(0, QFormLayout.ItemRole.FieldRole, self.btnBox_3)
+
+        self.btnGet_3 = QPushButton(self.active_page_hs)
+        self.btnGet_3.setObjectName(u"btnGet_3")
+
+        self.formLayout_4.setWidget(5, QFormLayout.ItemRole.LabelRole, self.btnGet_3)
+
+        self.btnGetNext_3 = QPushButton(self.active_page_hs)
+        self.btnGetNext_3.setObjectName(u"btnGetNext_3")
+
+        self.formLayout_4.setWidget(5, QFormLayout.ItemRole.FieldRole, self.btnGetNext_3)
+
+        self.label_7 = QLabel(self.active_page_hs)
+        self.label_7.setObjectName(u"label_7")
+
+        self.formLayout_4.setWidget(1, QFormLayout.ItemRole.LabelRole, self.label_7)
+
+        self.label_8 = QLabel(self.active_page_hs)
+        self.label_8.setObjectName(u"label_8")
+
+        self.formLayout_4.setWidget(3, QFormLayout.ItemRole.LabelRole, self.label_8)
+
+        self.label_9 = QLabel(self.active_page_hs)
+        self.label_9.setObjectName(u"label_9")
+
+        self.formLayout_4.setWidget(4, QFormLayout.ItemRole.LabelRole, self.label_9)
+
+        self.pn_3 = QSpinBox(self.active_page_hs)
+        self.pn_3.setObjectName(u"pn_3")
+
+        self.formLayout_4.setWidget(4, QFormLayout.ItemRole.FieldRole, self.pn_3)
+
+        self.ps_3 = QSpinBox(self.active_page_hs)
+        self.ps_3.setObjectName(u"ps_3")
+
+        self.formLayout_4.setWidget(3, QFormLayout.ItemRole.FieldRole, self.ps_3)
+
+        self.label_10 = QLabel(self.active_page_hs)
+        self.label_10.setObjectName(u"label_10")
+
+        self.formLayout_4.setWidget(2, QFormLayout.ItemRole.LabelRole, self.label_10)
+
+        self.maxId = QLineEdit(self.active_page_hs)
+        self.maxId.setObjectName(u"maxId")
+
+        self.formLayout_4.setWidget(1, QFormLayout.ItemRole.FieldRole, self.maxId)
+
+        self.wiewAt = QLineEdit(self.active_page_hs)
+        self.wiewAt.setObjectName(u"wiewAt")
+
+        self.formLayout_4.setWidget(2, QFormLayout.ItemRole.FieldRole, self.wiewAt)
+
+        self.actionPage.addWidget(self.active_page_hs)
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.formLayout_8 = QFormLayout(self.page)
+        self.formLayout_8.setObjectName(u"formLayout_8")
+        self.btnGV_8 = QPushButton(self.page)
+        self.btnGV_8.setObjectName(u"btnGV_8")
+
+        self.formLayout_8.setWidget(1, QFormLayout.ItemRole.LabelRole, self.btnGV_8)
+
+        self.btnBox_8 = QPushButton(self.page)
+        self.btnBox_8.setObjectName(u"btnBox_8")
+
+        self.formLayout_8.setWidget(1, QFormLayout.ItemRole.FieldRole, self.btnBox_8)
+
+        self.btnGetNext_8 = QPushButton(self.page)
+        self.btnGetNext_8.setObjectName(u"btnGetNext_8")
+
+        self.formLayout_8.setWidget(2, QFormLayout.ItemRole.FieldRole, self.btnGetNext_8)
+
+        self.btnGet_8 = QPushButton(self.page)
+        self.btnGet_8.setObjectName(u"btnGet_8")
+
+        self.formLayout_8.setWidget(2, QFormLayout.ItemRole.LabelRole, self.btnGet_8)
+
+        self.actionPage.addWidget(self.page)
+        self.active_page_bvid = QWidget()
+        self.active_page_bvid.setObjectName(u"active_page_bvid")
+        self.formLayout = QFormLayout(self.active_page_bvid)
+        self.formLayout.setObjectName(u"formLayout")
+        self.btnGV_1 = QPushButton(self.active_page_bvid)
+        self.btnGV_1.setObjectName(u"btnGV_1")
+
+        self.formLayout.setWidget(0, QFormLayout.ItemRole.LabelRole, self.btnGV_1)
+
+        self.label1 = QLabel(self.active_page_bvid)
+        self.label1.setObjectName(u"label1")
+
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.LabelRole, self.label1)
+
+        self.bvid = QLineEdit(self.active_page_bvid)
+        self.bvid.setObjectName(u"bvid")
+
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.FieldRole, self.bvid)
+
+        self.btnGet_1 = QPushButton(self.active_page_bvid)
+        self.btnGet_1.setObjectName(u"btnGet_1")
+
+        self.formLayout.setWidget(3, QFormLayout.ItemRole.LabelRole, self.btnGet_1)
+
+        self.btnBox_1 = QPushButton(self.active_page_bvid)
+        self.btnBox_1.setObjectName(u"btnBox_1")
+
+        self.formLayout.setWidget(0, QFormLayout.ItemRole.FieldRole, self.btnBox_1)
+
+        self.btnGetNext_1 = QPushButton(self.active_page_bvid)
+        self.btnGetNext_1.setObjectName(u"btnGetNext_1")
+        self.btnGetNext_1.setEnabled(False)
+
+        self.formLayout.setWidget(3, QFormLayout.ItemRole.FieldRole, self.btnGetNext_1)
+
+        self.label_4 = QLabel(self.active_page_bvid)
+        self.label_4.setObjectName(u"label_4")
+
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.LabelRole, self.label_4)
+
+        self.ps_2 = QSpinBox(self.active_page_bvid)
+        self.ps_2.setObjectName(u"ps_2")
+
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.FieldRole, self.ps_2)
+
+        self.actionPage.addWidget(self.active_page_bvid)
         self.other_page = QWidget()
         self.other_page.setObjectName(u"other_page")
         self.gridLayout_4 = QGridLayout(self.other_page)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.setting = QPushButton(self.other_page)
-        self.setting.setObjectName(u"setting")
-
-        self.gridLayout_4.addWidget(self.setting, 0, 0, 1, 1)
-
         self.exit = QPushButton(self.other_page)
         self.exit.setObjectName(u"exit")
 
-        self.gridLayout_4.addWidget(self.exit, 1, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.exit, 2, 0, 1, 1)
+
+        self.setting = QPushButton(self.other_page)
+        self.setting.setObjectName(u"setting")
+
+        self.gridLayout_4.addWidget(self.setting, 1, 0, 1, 1)
+
+        self.igs = QComboBox(self.other_page)
+        self.igs.setObjectName(u"igs")
+
+        self.gridLayout_4.addWidget(self.igs, 0, 0, 1, 1)
 
         self.actionPage.addWidget(self.other_page)
 
@@ -245,8 +397,8 @@ class Ui_windowMain(object):
 
         self.dBar.addWidget(self.pic)
 
-        self.dBar.setStretch(0, 3)
-        self.dBar.setStretch(1, 2)
+        self.dBar.setStretch(0, 1)
+        self.dBar.setStretch(1, 1)
 
         self.verticalLayout.addLayout(self.dBar)
 
@@ -259,7 +411,7 @@ class Ui_windowMain(object):
 
         self.retranslateUi(windowMain)
 
-        self.actionPage.setCurrentIndex(0)
+        self.actionPage.setCurrentIndex(6)
 
 
         QMetaObject.connectSlotsByName(windowMain)
@@ -285,16 +437,33 @@ class Ui_windowMain(object):
         self.action_choseAll.setText(QCoreApplication.translate("windowMain", u"\u5168\u9009", None))
         self.action_2.setText(QCoreApplication.translate("windowMain", u"PushButton", None))
         self.action_open.setText(QCoreApplication.translate("windowMain", u"\u6253\u5f00", None))
-        self.active_addV.setText(QCoreApplication.translate("windowMain", u"\u6dfb\u52a0\u89c6\u9891", None))
-        self.active_box.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6", None))
-        self.active_video.setText(QCoreApplication.translate("windowMain", u"\u89c6\u9891\u64cd\u4f5c", None))
-        self.active_DLV.setText(QCoreApplication.translate("windowMain", u"\u4e0b\u8f7d\u89c6\u9891", None))
-        self.active_getVideo.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6\u89c6\u9891", None))
-        self.pushButton_2.setText(QCoreApplication.translate("windowMain", u"PushButton", None))
-        self.pushButton_3.setText(QCoreApplication.translate("windowMain", u"PushButton", None))
-        self.active_count.setText(QCoreApplication.translate("windowMain", u"\u7edf\u8ba1", None))
-        self.setting.setText(QCoreApplication.translate("windowMain", u"\u8bbe\u7f6e", None))
+        self.label.setText(QCoreApplication.translate("windowMain", u"keyword", None))
+        self.label_2.setText(QCoreApplication.translate("windowMain", u"ps", None))
+        self.label_3.setText(QCoreApplication.translate("windowMain", u"pn", None))
+        self.btnGV_2.setText(QCoreApplication.translate("windowMain", u"\u9009\u62e9\u6e20\u9053", None))
+        self.btnBox_2.setText(QCoreApplication.translate("windowMain", u"Box", None))
+        self.btnGet_2.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6", None))
+        self.btnGetNext_2.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6\u4e0b\u4e00\u4e2a", None))
+        self.btnGV_3.setText(QCoreApplication.translate("windowMain", u"\u9009\u62e9\u6e20\u9053", None))
+        self.btnBox_3.setText(QCoreApplication.translate("windowMain", u"Box", None))
+        self.btnGet_3.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6", None))
+        self.btnGetNext_3.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6\u4e0b\u4e00\u4e2a", None))
+        self.label_7.setText(QCoreApplication.translate("windowMain", u"maxId", None))
+        self.label_8.setText(QCoreApplication.translate("windowMain", u"ps", None))
+        self.label_9.setText(QCoreApplication.translate("windowMain", u"pn", None))
+        self.label_10.setText(QCoreApplication.translate("windowMain", u"viewAt", None))
+        self.btnGV_8.setText(QCoreApplication.translate("windowMain", u"\u9009\u62e9\u6e20\u9053", None))
+        self.btnBox_8.setText(QCoreApplication.translate("windowMain", u"Box", None))
+        self.btnGetNext_8.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6\u4e0b\u4e00\u4e2a", None))
+        self.btnGet_8.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6", None))
+        self.btnGV_1.setText(QCoreApplication.translate("windowMain", u"\u9009\u62e9\u6e20\u9053", None))
+        self.label1.setText(QCoreApplication.translate("windowMain", u"bvid", None))
+        self.btnGet_1.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6", None))
+        self.btnBox_1.setText(QCoreApplication.translate("windowMain", u"Box", None))
+        self.btnGetNext_1.setText(QCoreApplication.translate("windowMain", u"\u83b7\u53d6\u4e0b\u4e00\u4e2a", None))
+        self.label_4.setText(QCoreApplication.translate("windowMain", u"ps", None))
         self.exit.setText(QCoreApplication.translate("windowMain", u"\u9000\u51fa", None))
+        self.setting.setText(QCoreApplication.translate("windowMain", u"\u8bbe\u7f6e", None))
         self.active_cPage.setText(QCoreApplication.translate("windowMain", u"\u6d3b\u52a8", None))
         self.other_cPage.setText(QCoreApplication.translate("windowMain", u"\u5176\u4ed6", None))
         self.pic.setText("")

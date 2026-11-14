@@ -55,7 +55,7 @@
            </size>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>6</number>
           </property>
           <widget class="QWidget" name="custom_page">
            <layout class="QGridLayout" name="gridLayout_2">
@@ -177,53 +177,245 @@
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="active_page">
-           <layout class="QGridLayout" name="gridLayout">
-            <item row="0" column="0">
-             <widget class="QPushButton" name="active_getVideo">
+          <widget class="QWidget" name="active_page_sea">
+           <layout class="QFormLayout" name="formLayout_2">
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="keyword"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label">
               <property name="text">
-               <string>获取视频</string>
+               <string>keyword</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="0">
-             <widget class="QPushButton" name="active_video">
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_2">
               <property name="text">
-               <string>视频操作</string>
+               <string>ps</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QSpinBox" name="ps_1"/>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>pn</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QSpinBox" name="pn_1"/>
+            </item>
+            <item row="0" column="0">
+             <widget class="QPushButton" name="btnGV_2">
+              <property name="text">
+               <string>选择渠道</string>
               </property>
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QPushButton" name="active_box">
+             <widget class="QPushButton" name="btnBox_2">
+              <property name="text">
+               <string>Box</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QPushButton" name="btnGet_2">
               <property name="text">
                <string>获取</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
-             <widget class="QPushButton" name="active_">
+            <item row="4" column="1">
+             <widget class="QPushButton" name="btnGetNext_2">
               <property name="text">
-               <string/>
+               <string>获取下一个</string>
               </property>
              </widget>
             </item>
            </layout>
           </widget>
+          <widget class="QWidget" name="active_page_hs">
+           <layout class="QFormLayout" name="formLayout_4">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="btnGV_3">
+              <property name="text">
+               <string>选择渠道</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QPushButton" name="btnBox_3">
+              <property name="text">
+               <string>Box</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QPushButton" name="btnGet_3">
+              <property name="text">
+               <string>获取</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QPushButton" name="btnGetNext_3">
+              <property name="text">
+               <string>获取下一个</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_7">
+              <property name="text">
+               <string>maxId</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string>ps</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_9">
+              <property name="text">
+               <string>pn</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QSpinBox" name="pn_3"/>
+            </item>
+            <item row="3" column="1">
+             <widget class="QSpinBox" name="ps_3"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_10">
+              <property name="text">
+               <string>viewAt</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="maxId"/>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="wiewAt"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page">
+           <layout class="QFormLayout" name="formLayout_8">
+            <item row="1" column="0">
+             <widget class="QPushButton" name="btnGV_8">
+              <property name="text">
+               <string>选择渠道</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="btnBox_8">
+              <property name="text">
+               <string>Box</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QPushButton" name="btnGetNext_8">
+              <property name="text">
+               <string>获取下一个</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QPushButton" name="btnGet_8">
+              <property name="text">
+               <string>获取</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="active_page_bvid">
+           <layout class="QFormLayout" name="formLayout">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="btnGV_1">
+              <property name="text">
+               <string>选择渠道</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label1">
+              <property name="text">
+               <string>bvid</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="bvid"/>
+            </item>
+            <item row="3" column="0">
+             <widget class="QPushButton" name="btnGet_1">
+              <property name="text">
+               <string>获取</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QPushButton" name="btnBox_1">
+              <property name="text">
+               <string>Box</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QPushButton" name="btnGetNext_1">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>获取下一个</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>ps</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QSpinBox" name="ps_2"/>
+            </item>
+           </layout>
+          </widget>
           <widget class="QWidget" name="other_page">
            <layout class="QGridLayout" name="gridLayout_4">
-            <item row="0" column="0">
+            <item row="2" column="0">
+             <widget class="QPushButton" name="exit">
+              <property name="text">
+               <string>退出</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
              <widget class="QPushButton" name="setting">
               <property name="text">
                <string>设置</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="0">
-             <widget class="QPushButton" name="exit">
-              <property name="text">
-               <string>退出</string>
-              </property>
-             </widget>
+            <item row="0" column="0">
+             <widget class="QComboBox" name="igs"/>
             </item>
            </layout>
           </widget>
@@ -252,7 +444,7 @@
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="dBar" stretch="3,2">
+     <layout class="QHBoxLayout" name="dBar" stretch="1,1">
       <item>
        <widget class="QListWidget" name="info"/>
       </item>
