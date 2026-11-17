@@ -1,5 +1,6 @@
 from typing import TYPE_CHECKING
 from . import data
+import re
 if TYPE_CHECKING:
     from app import activity as ActivityType
     from gui import uio as UIOType
@@ -13,7 +14,7 @@ class action:
         self.geter = activity.geter
         self.meta = {"exit":{"desc":"退出程序","f":self.exit},"gvbh":{"desc":"推荐","f":self.getVideoByH},
             "test":{"desc":"测试功能","f":self.test},"gvbi":{"desc":"getVideoByBvid","f":self.getVideoByBvid},
-            "info":{"desc":"显示信息","f":self.showInfo}}
+            "info":{"desc":"显示信息","f":self.showInfo},"seav":{"desc":"搜索视频","f":self.searchVideo}}
     def test(self,p):
         if  self.ig() == None:
             self.activity.status = "没有项组"
@@ -28,8 +29,12 @@ class action:
     def exit(self,p):
         self.activity.status = "exit"
     def getVideoByBvid(self,p):
-        vi = self.geter.videoInfo(p['bvid'])
-        self.ig().addItem({"bvid":p['bvid'],"title":vi['title'],"desc":vi['desc'],"pic":vi['pic'],"upid":vi['owner']['mid']})
+        if p["bvid"][:2] == "BV" and len(p["bvid"]) == 12:
+            bvid = p["bvid"]
+        else:
+            bvid = re.search(r"BV[0-9A-Za-z]{10}",p["bvid"])
+        vi = self.geter.videoInfo(bvid)
+        self.ig().addItem({"bvid":bvid,"title":vi['title'],"desc":vi['desc'],"pic":vi['pic'],"upname":vi['owner']['name'],"upid":vi['owner']['mid']})
         self.uio.Wmain.updateList()
     def getVideoByH(self,p):
         for i in self.geter.VG(p.get("ps",10)): # type: ignore
@@ -50,3 +55,13 @@ class action:
         #self.uio.Wmain.ui.info.addItem(f"时长:{r['duration']}|观看次数:{r['view']}")
         self.uio.Wmain.ui.info.addItem(f"bvid:{p['key']}")
         self.uio.Wmain.showpic(self.ig().indexItem(p['key'],"pic"))
+    def searchVideo(self,p):
+        if p.get("keyword") == None:
+            self.activity.status = "没有输入搜索关键字"
+            return
+        r = self.geter.search(p["keyword"],p.get("pn",1))
+        print(r)
+        for i in r:
+            self.ig().addItems(i) # type: ignore
+        self.uio.Wmain.updateList()
+    

@@ -80,6 +80,9 @@ class get:
         """
         Url = "https://api.bilibili.com/x/web-interface/search/type"
         params = {"keyword": keyword, "search_type": "video", "page": page}
+        wrid, wts = w_rid(params)
+        params["w_rid"] = wrid
+        params["wts"] = wts
         req = self.session.get(Url, params=params)
         self.check(req)
         if clear:

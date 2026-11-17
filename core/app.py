@@ -1,5 +1,6 @@
 from . import get,data,downloader
 from .action import action
+import time
 #from functools import wraps
 
 class activity:
@@ -24,6 +25,7 @@ class activity:
                     self.event.remove(e)
                 except Exception as e:
                     print(f"[E]任务失败:{e}")
+            time.sleep(0.01)
             #self.uim.loop()
     def doTask(self, task:dict):
         try:
@@ -35,4 +37,5 @@ class activity:
             print(f"[E]失败:{e}")
     def addTask(self, task:str,p:dict={}):
         self.event.append({"id":task,"p":p})
+
     
